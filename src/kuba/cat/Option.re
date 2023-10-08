@@ -5,6 +5,11 @@ let fold = (default, f) =>
   | None => default
   | Some(a) => f(a);
 
+let foldLazy = (makeDefault, f) =>
+  fun
+  | None => makeDefault()
+  | Some(a) => f(a);
+
 let flatMap = f =>
   fun
   | Some(a) => a |> f
