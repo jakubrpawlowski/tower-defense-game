@@ -38,6 +38,10 @@ build_verbose: ## Build the project
 serve: ## Serve the application with a local HTTP server
 	npm run serve
 
+.PHONY: web
+web: ## Serve the web application with a local HTTP server
+	npm run web
+
 .PHONY: bundle
 bundle: ## Bundle the JavaScript application
 	npm run bundle

@@ -1,0 +1,5 @@
+(library
+ (name worker)
+ (modes melange)
+ (preprocess
+  (pps melange.ppx)))

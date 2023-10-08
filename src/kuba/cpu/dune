@@ -1,6 +1,5 @@
 (melange.emit
- (target node)
- (alias node)
+ (target engine)
+ (alias worker)
  (libraries cat)
- (modules arena)
  (module_systems es6))

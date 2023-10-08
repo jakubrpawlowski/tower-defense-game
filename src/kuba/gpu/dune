@@ -1,0 +1,7 @@
+(melange.emit
+ (target ui)
+ (alias react)
+ (libraries cat reason-react worker)
+ (preprocess
+  (pps melange.ppx reason-react-ppx))
+ (module_systems es6))
