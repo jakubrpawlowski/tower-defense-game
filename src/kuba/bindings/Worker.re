@@ -1,9 +1,12 @@
 type t;
 
-// string here is a path to workers .js file
-[@mel.new] external make: string => t = "Worker";
+/**
+  string here is a path to workers .js file
+*/
+[@mel.new]
+external make: string => t = "Worker";
 
-[@mel.send] external postMessage: (t, 'a) => unit = "postMessage";
+[@mel.send] external postMessageToWorker: (t, 'a) => unit = "postMessage";
 
 module MessageEvent = {
   type t;
@@ -12,4 +15,9 @@ module MessageEvent = {
 };
 
 [@mel.set]
-external onMessage: (t, MessageEvent.t => unit) => unit = "onmessage";
+external onMessageFromWorker: (t, MessageEvent.t => unit) => unit =
+  "onmessage";
+
+external postMessageToMain: 'a => unit = "postMessage";
+
+external onMessageFromMain: MessageEvent.t => unit = "onmessage";

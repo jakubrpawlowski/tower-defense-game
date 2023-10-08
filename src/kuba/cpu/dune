@@ -1,5 +1,5 @@
 (melange.emit
  (target engine)
- (alias worker)
- (libraries cat)
+ (alias cpu)
+ (libraries cat worker)
  (module_systems es6))
