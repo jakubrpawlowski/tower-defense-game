@@ -8,6 +8,8 @@ external make: string => t = "Worker";
 
 [@mel.send] external postMessageToWorker: (t, 'a) => unit = "postMessage";
 
+external postMessageToMain: 'a => unit = "postMessage";
+
 module MessageEvent = {
   type t;
 
@@ -15,9 +17,9 @@ module MessageEvent = {
 };
 
 [@mel.set]
-external onMessageFromWorker: (t, MessageEvent.t => unit) => unit =
-  "onmessage";
+external onMessage: (t, MessageEvent.t => unit) => unit = "onmessage";
 
-external postMessageToMain: 'a => unit = "postMessage";
+external globalThis: t = "globalThis";
+let onMessageFromMain = onMessage(globalThis);
 
-external onMessageFromMain: MessageEvent.t => unit = "onmessage";
+let onMessageFromWorker = onMessage;
