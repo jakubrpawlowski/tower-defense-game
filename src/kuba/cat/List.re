@@ -35,3 +35,12 @@ let rec mapOption = f =>
     | Some(a) => [a, ...mapOption(f, tail)]
     | None => mapOption(f, tail)
     };
+
+let rec filterOption = f =>
+  fun
+  | [] => []
+  | [head, ...tail] =>
+    switch (f(head)) {
+    | Some(_) => [head, ...filterOption(f, tail)]
+    | None => filterOption(f, tail)
+    };

@@ -67,7 +67,7 @@ module Neighbors = {
   let get = (c, m) =>
     offsets
     |> List.map(Coordinate.sum(c))
-    |> List.mapOption(Matrix.at(_, m));
+    |> List.filterOption(Matrix.at(_, m));
 };
 
 include Matrix;
