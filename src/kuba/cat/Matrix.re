@@ -41,9 +41,9 @@ module Distance = {
 
 module Matrix = {
   /**
-    [ ['a], ['a], ['a],
-      ['a], ['a], ['a],
-      ['a], ['a], ['a] ]
+    [ ['a, 'a, 'a],
+      ['a, 'a, 'a],
+      ['a, 'a, 'a] ]
   */
   type t('a) = list(list('a));
 
